@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 set timeout 30
 
-spawn rclone config
+spawn /home/user/path/rclone config
 sleep 2
 send "n\r"
 expect "name*"
@@ -10,11 +10,13 @@ sleep 2
 expect "Stora*"
 send "mega\r"
 expect "user*"
-send "$RUSER\r"
+send "RUSER\r"
 sleep 2
 send "y\r"
 expect "pass*"
-send "$RPASS\r"
+send "RPASS\r"
+sleep 3
+send "MPASS\r"
 sleep 3
 # no advanced config
 send "n\r"

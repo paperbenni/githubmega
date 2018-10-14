@@ -1,1 +1,4 @@
 build.sh
+.git
+.gitignore
+run.sh

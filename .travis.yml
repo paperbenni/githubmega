@@ -1,0 +1,15 @@
+sudo: required
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - echo deployment
+
+script:
+  - docker run --env RUSER="$TRUSER" --env RPASS="$TRPASS" --env GITUSER="$TGITUSER" paperbenni/mega
+

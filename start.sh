@@ -1,14 +1,21 @@
 #!/bin/bash
-bash login.sh
+
+sed -i -e "s/RUSER/$RUSER/g" ./login.sh
+sed -i -e "s/RPASS/$RPASS/g" ./login.sh
+sed -i -e "s/MPASS/$RPASS/g" ./login.sh
+
+
+./login.sh
 
 curl gitrepo.surge.sh/git.sh >git.sh
-bash git.sh $GITUSER >gitlist.txt
+bash git.sh "$GITUSER" >gitlist.txt
 rm git.sh
 mkdir git
 while read -r p; do
 	pushd git
 	git clone "$p"
-	rclone copy $CDIR mega:$GITUSER/$CDIR
+	echo "deploying to cloud"
+	/home/user/path/rclone copy "$CDIR" mega:$GITUSER/$CDIR
 	rm -rf ./*
 	popd
 done <gitlist.txt
