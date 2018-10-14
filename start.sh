@@ -14,16 +14,15 @@ mkdir git
 
 while :
 do
-DATE=$(date)
-echo "working...$DATE"
-sleep 20
+echo "working..."
+sleep 2
 done &
 
 while read -r p; do
 	pushd git
 	git clone "$p"
 	echo "deploying to cloud"
-	/home/user/path/rclone copy "$CDIR" mega:$GITUSER/$CDIR
+	/home/user/path/rclone -vv copy "$CDIR" mega:$GITUSER/$CDIR
 	rm -rf ./*
 	popd
 done <gitlist.txt

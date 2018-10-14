@@ -6,21 +6,20 @@ sleep 2
 send "n\r"
 expect "name*"
 send "mega\r"
-sleep 2
 expect "Stora*"
 send "mega\r"
 expect "user*"
 send "RUSER\r"
-sleep 2
+sleep 1
 send "y\r"
 expect "pass*"
 send "RPASS\r"
-sleep 3
+sleep 1
 send "MPASS\r"
-sleep 3
+sleep 1
 # no advanced config
 send "n\r"
-sleep 3
+sleep 1
 #yup, it's all right
 send "y\r"
 #quit config
