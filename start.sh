@@ -17,7 +17,7 @@ do
 DATE=$(date)
 echo "working...$DATE"
 sleep 20
-done
+done &
 
 while read -r p; do
 	pushd git
